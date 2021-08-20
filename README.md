@@ -1,2 +1,2 @@
-# Mide
-### Mide app using React Native
+# Mide app
+### Written in React Native framework
