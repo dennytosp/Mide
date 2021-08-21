@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, TextInput, View} from 'react-native';
-import {COLORS, SIZES} from '../../constants';
-import Button from '../../components/Button/auth';
+import {COLORS} from '../../../constants';
+import Button from '../../../components/Button/auth';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import SignInSignUpSVG from '../../assets/images/SignInOrSignUp.svg';
+import {thumbnail} from '../../../assets';
 import styles from './styles';
 
 const Register = ({navigation}) => {
@@ -16,7 +16,7 @@ const Register = ({navigation}) => {
         size={30}
         onPress={() => navigation.goBack()}
       />
-      <SignInSignUpSVG width={350} heigh={250} />
+      <thumbnail.auth width={350} heigh={250} />
       <View style={styles.rectangleWrapper}>
         <View style={styles.cardWrapper}>
           <Text style={styles.txtRegister}>Create Account</Text>
@@ -65,7 +65,8 @@ const Register = ({navigation}) => {
             </View>
           </View>
           <Button
-            label={'Register'}
+          handleOnPress={() => navigation.navigate('BotTabNavigation')}
+          label={'Register'}
             isPrimary={true}
             style={styles.btnRegister}
           />
@@ -75,7 +76,7 @@ const Register = ({navigation}) => {
             </Text>
             <Text
               style={styles.txtRowTwoBottom}
-              onPress={() => navigation.navigate('LoginScreen')}>
+              onPress={() => navigation.navigate('Login')}>
               Sign In
             </Text>
           </View>

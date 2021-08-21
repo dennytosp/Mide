@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {COLORS, SIZES} from '../../constants';
+import {COLORS, SIZES} from '../../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     padding: SIZES.base * 2,
     position: 'relative',
+    paddingTop: 50,
   },
   rectangleWrapper: {
     position: 'absolute',

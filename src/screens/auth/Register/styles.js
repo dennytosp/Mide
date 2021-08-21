@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {COLORS, SIZES} from '../../constants';
+import {COLORS, SIZES} from '../../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     padding: SIZES.base * 2,
     position: 'relative',
+    paddingTop: 50,
   },
   rectangleWrapper: {
     position: 'absolute',
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
     right: SIZES.base * 2,
     fontSize: 30,
   },
-  txtForgot: {},
   btnRegister: {
     marginVertical: SIZES.base * 2,
   },

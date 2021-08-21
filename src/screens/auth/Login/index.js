@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, SafeAreaView, TextInput} from 'react-native';
-import {COLORS, SIZES} from '../../constants';
-import Button from '../../components/Button/auth';
+import {COLORS} from '../../../constants';
+import Button from '../../../components/Button/auth';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import SignInSignUpSVG from '../../assets/images/SignInOrSignUp.svg';
+import {thumbnail} from '../../../assets';
 import styles from './styles';
 
 const Login = ({navigation}) => {
@@ -19,7 +19,8 @@ const Login = ({navigation}) => {
           navigation.goBack();
         }}
       />
-      <SignInSignUpSVG width={350} heigh={250} />
+
+      <thumbnail.auth width={350} heigh={250} />
       <View style={styles.rectangleWrapper}>
         <View style={styles.cardWrapper}>
           <Text style={styles.txtSignIn}>Sign In</Text>
@@ -59,13 +60,15 @@ const Login = ({navigation}) => {
 
           {/* Forgon password link */}
           <Text style={styles.txtForgot}>Forgot Password?</Text>
-          <Button label={'Login'} isPrimary={true} style={styles.btnLogin} />
+          <Button 
+          handleOnPress={() => navigation.navigate('BotTabNavigation')}
+          label={'Login'} isPrimary={true} style={styles.btnLogin} />
           <View style={styles.txtBottomWrapper}>
             <Text style={styles.txtRowOneBottom}>Don't have an account ?</Text>
             <Text
               style={styles.txtRowTwoBottom}
               onPress={() => {
-                navigation.navigate('RegisterScreen');
+                navigation.navigate('Register');
               }}>
               Create Account
             </Text>
