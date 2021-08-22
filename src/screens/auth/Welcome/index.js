@@ -8,11 +8,11 @@ const Welcome = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bgWrapper}>
-        <Text style={styles.txtInBackground}>Welcome</Text>
-        <thumbnail.welcome width={350} height={250} />
+        <Text style={styles.txtInBackground}>Welcome to Mide</Text>
+        <thumbnail.wal06 width={350} height={250} />
       </View>
       <View style={styles.sloganWrapper}>
-        <Text style={styles.txtSlogan}>Discover Amazing things!</Text>
+        <Text style={styles.txtSlogan}>Discover amazing things here</Text>
         <Button
           label="Create Account"
           isPrimary={true}

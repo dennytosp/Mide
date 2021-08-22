@@ -1,12 +1,15 @@
 import {StyleSheet} from 'react-native';
-import COLORS from '../../../constants';
+import {COLORS} from '../../../constants';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
+    paddingTop: 40,
+    display: 'flex',
+    flex: 1,
+    backgroundColor: COLORS.white,
+  },
+  footerWrapper: {
+    position: 'absolute',
+    bottom: 0,
   },
 });
-
-export default styles;

@@ -10,8 +10,9 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import {COLORS} from '../../../constants';
+import {COLORS, SIZES} from '../../../constants';
 import {horizontalfaltlist, verticalFlatList} from '../../../assets/data';
+import {headset, photos} from '../../../assets';
 import styles from './styles';
 
 const Homel = ({navigation}) => {
@@ -92,22 +93,22 @@ const Homel = ({navigation}) => {
           <Feather name="menu" size={20} />
         </View>
         <View style={styles.drawerMenu}>
-          <Feather name="bell" size={20} />
+          {/* <Feather name="bell" size={20} /> */}
+          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+            <Image
+              source={photos.avatar}
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: SIZES.base * 10,
+              }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          paddingHorizontal: 15,
-          marginVertical: 20,
-        }}>
+      <View style={styles.rowWrapperSearchFilter}>
         <View style={styles.searchBar}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginHorizontal: 10,
-            }}>
+          <View style={styles.rowling}>
             <Feather
               name="search"
               style={{color: COLORS.holderText}}
@@ -118,16 +119,16 @@ const Homel = ({navigation}) => {
         </View>
         <View
           style={[
-            styles.serachBar,
+            styles.searchBar,
             {width: '18%', marginHorizontal: 25, alignItems: 'center'},
           ]}>
           <Feather name="filter" size={22} />
         </View>
       </View>
-      <View style={{paddingHorizontal: 15}}>
-        <Text style={{fontSize: 25, fontWeight: 'bold'}}>Best Selling</Text>
+      <View style={styles.viewBestSelling}>
+        <Text style={styles.txtBestSelling}>Best Selling</Text>
       </View>
-      <View style={{paddingHorizontal: 10, marginVertical: 20}}>
+      <View style={styles.viewHorizontalFlatlist}>
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -135,8 +136,8 @@ const Homel = ({navigation}) => {
           renderItem={horizontalRenderItem}
         />
       </View>
-      <View style={{paddingHorizontal: 15, marginBottom: 50}}>
-        <Text style={{fontSize: 25, fontWeight: 'bold'}}>Popular</Text>
+      <View style={styles.viewVerticalFlatlist}>
+        <Text style={styles.txtPopular}>Popular</Text>
         <FlatList
           style={{paddingBottom: 20}}
           data={verticalFlatList}

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, TextInput, View} from 'react-native';
 import {COLORS} from '../../../constants';
-import Button from '../../../components/Button/auth';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import {thumbnail} from '../../../assets';
+import {FormInput, Button} from './../../../components';
 import styles from './styles';
 
 const Register = ({navigation}) => {
@@ -22,36 +22,33 @@ const Register = ({navigation}) => {
           <Text style={styles.txtRegister}>Create Account</Text>
           <View style={styles.inputWrapper}>
             <Text style={styles.txtForm}>Fullname</Text>
-            <TextInput
-              onFocus={() => setActiveInput('fullname')}
+            <FormInput
+              focusRemote={() => setActiveInput('fullname')}
               style={{
                 borderColor:
                   activeInput == 'fullname' ? COLORS.primary : COLORS.white,
-                ...styles.textInput,
               }}
             />
           </View>
           <View style={styles.inputWrapper}>
             <Text style={styles.txtForm}>Email Address</Text>
-            <TextInput
-              onFocus={() => setActiveInput('email')}
+            <FormInput
+              focusRemote={() => setActiveInput('email')}
               style={{
                 borderColor:
                   activeInput == 'email' ? COLORS.primary : COLORS.white,
-                ...styles.textInput,
               }}
             />
           </View>
           <View style={styles.inputWrapper}>
             <Text style={styles.txtForm}>Password</Text>
             <View style={styles.eyeWrapper}>
-              <TextInput
-                onFocus={() => setActiveInput('password')}
+              <FormInput
+                focusRemote={() => setActiveInput('password')}
                 secureTextEntry={showPassword ? false : true}
                 style={{
                   borderColor:
                     activeInput == 'password' ? COLORS.primary : COLORS.white,
-                  ...styles.textInput,
                 }}
               />
               <AntDesignIcon
@@ -65,8 +62,8 @@ const Register = ({navigation}) => {
             </View>
           </View>
           <Button
-          handleOnPress={() => navigation.navigate('BotTabNavigation')}
-          label={'Register'}
+            handleOnPress={() => navigation.navigate('BotTabNavigation')}
+            label={'Register'}
             isPrimary={true}
             style={styles.btnRegister}
           />

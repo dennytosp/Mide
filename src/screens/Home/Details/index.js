@@ -63,7 +63,7 @@ const Details = ({route, navigation}) => {
         <View style={styles.footer}>
           <Text style={styles.txtPrice}>{route.params.details.price}</Text>
           <TouchableOpacity style={styles.buttonWrapper}>
-            <Text style={styles.txtButton}>Add to cart</Text>
+            <Text style={styles.txtButton}>CONTACT NOW</Text>
           </TouchableOpacity>
         </View>
       </View>

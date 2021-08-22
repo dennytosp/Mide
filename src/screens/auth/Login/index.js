@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView, TextInput} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import {COLORS} from '../../../constants';
-import Button from '../../../components/Button/auth';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import {thumbnail} from '../../../assets';
+import {FormInput, Button} from './../../../components';
 import styles from './styles';
 
 const Login = ({navigation}) => {
@@ -26,25 +26,23 @@ const Login = ({navigation}) => {
           <Text style={styles.txtSignIn}>Sign In</Text>
           <View style={styles.inputWrapper}>
             <Text style={styles.txtForm}>Email Address</Text>
-            <TextInput
-              onFocus={() => setActiveInput('email')}
+            <FormInput
+              focusRemote={() => setActiveInput('email')}
               style={{
                 borderColor:
                   activeInput == 'email' ? COLORS.primary : COLORS.white,
-                ...styles.textInput,
               }}
             />
           </View>
           <View style={styles.inputWrapper}>
             <Text style={styles.txtForm}>Password</Text>
             <View style={styles.eyeWrapper}>
-              <TextInput
-                onFocus={() => setActiveInput('password')}
+              <FormInput
+                focusRemote={() => setActiveInput('password')}
                 secureTextEntry={showPassword ? false : true}
                 style={{
                   borderColor:
                     activeInput == 'password' ? COLORS.primary : COLORS.white,
-                  ...styles.textInput,
                 }}
               />
               <AntDesignIcon
@@ -60,9 +58,12 @@ const Login = ({navigation}) => {
 
           {/* Forgon password link */}
           <Text style={styles.txtForgot}>Forgot Password?</Text>
-          <Button 
-          handleOnPress={() => navigation.navigate('BotTabNavigation')}
-          label={'Login'} isPrimary={true} style={styles.btnLogin} />
+          <Button
+            handleOnPress={() => navigation.navigate('BotTabNavigation')}
+            label={'Login'}
+            isPrimary={true}
+            style={styles.btnLogin}
+          />
           <View style={styles.txtBottomWrapper}>
             <Text style={styles.txtRowOneBottom}>Don't have an account ?</Text>
             <Text

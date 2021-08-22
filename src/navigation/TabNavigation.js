@@ -17,7 +17,7 @@ const MainTabScreen = () => (
       component={Homel}
       options={{
         tabBarLabel: 'Headset',
-        tabBarColor: COLORS.purple,
+        tabBarColor: COLORS.primary,
         tabBarIcon: ({color}) => (
           <Icon name="ios-headset" color={color} size={26} />
         ),
@@ -28,7 +28,7 @@ const MainTabScreen = () => (
       component={WishList}
       options={{
         tabBarLabel: 'Wishlist',
-        tabBarColor: COLORS.purple,
+        tabBarColor: COLORS.primary,
         tabBarIcon: ({color}) => (
           <Icon name="ios-planet" color={color} size={26} />
         ),
@@ -39,7 +39,7 @@ const MainTabScreen = () => (
       component={Message}
       options={{
         tabBarLabel: 'Message',
-        tabBarColor: COLORS.purple,
+        tabBarColor: COLORS.primary,
         tabBarIcon: ({color}) => (
           <Icon name="ios-mail" color={color} size={26} />
         ),
@@ -50,7 +50,7 @@ const MainTabScreen = () => (
       component={Profile}
       options={{
         tabBarLabel: 'Profile',
-        tabBarColor: COLORS.purple,
+        tabBarColor: COLORS.primary,
         tabBarIcon: ({color}) => (
           <Icon name="ios-person" color={color} size={26} />
         ),

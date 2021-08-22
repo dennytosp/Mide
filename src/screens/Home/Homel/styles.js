@@ -26,6 +26,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 1,
   },
+  rowWrapperSearchFilter: {
+    flexDirection: 'row',
+    paddingHorizontal: 15,
+    marginVertical: 20,
+  },
+  rowling: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 10,
+  },
   searchBar: {
     height: 50,
     width: '75%',
@@ -122,6 +132,25 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     bottom: 10,
+  },
+  viewBestSelling: {
+    paddingHorizontal: 15,
+  },
+  txtBestSelling: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+  viewHorizontalFlatlist: {
+    paddingHorizontal: 10,
+    marginVertical: 20,
+  },
+  viewVerticalFlatlist: {
+    paddingHorizontal: 15,
+    marginBottom: 50,
+  },
+  txtPopular: {
+    fontSize: 25,
+    fontWeight: 'bold',
   },
 });
 

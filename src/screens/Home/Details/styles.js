@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     height: '50%',
-    backgroundColor: '#482E55',
+    backgroundColor: COLORS.bgProduct6,
   },
   headsetDescWrapper: {
     height: 350,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     height: 50,
     width: 120,
-    backgroundColor: '#D16Eff',
+    backgroundColor: '#4F84C2',
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',

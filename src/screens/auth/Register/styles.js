@@ -37,13 +37,6 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     marginBottom: SIZES.base,
   },
-  textInput: {
-    padding: SIZES.base,
-    backgroundColor: COLORS.white,
-    borderRadius: 5,
-    paddingVertical: SIZES.base * 1.5,
-    borderWidth: 1.5,
-  },
   eyeWrapper: {
     position: 'relative',
     justifyContent: 'center',
