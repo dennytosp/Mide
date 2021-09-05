@@ -1,10 +1,9 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {Homel, WishList, Message, Profile} from '../screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {COLORS} from '../constants';
-
+import { client } from './../screens';
 const HomeStack = createNativeStackNavigator();
 const WishlistStack = createNativeStackNavigator();
 
@@ -14,7 +13,7 @@ const MainTabScreen = () => (
   <Tab.Navigator initialRouteName="Home" activeColor={COLORS.white}>
     <Tab.Screen
       name="Home"
-      component={Homel}
+      component={client.Homel}
       options={{
         tabBarLabel: 'Headset',
         tabBarColor: COLORS.primary,
@@ -25,7 +24,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Wishlist"
-      component={WishList}
+      component={client.WishList}
       options={{
         tabBarLabel: 'Wishlist',
         tabBarColor: COLORS.primary,
@@ -36,7 +35,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Message"
-      component={Message}
+      component={client.Message}
       options={{
         tabBarLabel: 'Message',
         tabBarColor: COLORS.primary,
@@ -47,7 +46,7 @@ const MainTabScreen = () => (
     />
     <Tab.Screen
       name="Profile"
-      component={Profile}
+      component={client.Profile}
       options={{
         tabBarLabel: 'Profile',
         tabBarColor: COLORS.primary,
@@ -74,7 +73,7 @@ const HomeStackScreen = () => (
     }}>
     <HomeStack.Screen
       name="Home"
-      component={Homel}
+      component={client.Homel}
       options={{
         title: 'Overview',
         headerLeft: () => (
@@ -102,7 +101,7 @@ const WishlistStackScreen = () => (
     }}>
     <WishlistStack.Screen
       name="Wishlist"
-      component={WishList}
+      component={client.WishList}
       options={{
         headerLeft: () => (
           <Icon.Button

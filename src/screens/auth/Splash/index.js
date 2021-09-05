@@ -1,9 +1,25 @@
 import React, {useState, useEffect} from 'react';
-import {View, StatusBar, Text} from 'react-native';
+import {View, StatusBar} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {lottie} from '../../../assets';
+import auth from '@react-native-firebase/auth';
 
 const Splash = ({navigation}) => {
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, []);
+
+  if (initializing) return null;
+
   return (
     <View style={{flex: 1, alignItems: 'center', backgroundColor: '#FFF'}}>
       <StatusBar
@@ -17,7 +33,7 @@ const Splash = ({navigation}) => {
         loop={false}
         speed={0.7}
         onAnimationFinish={() => {
-          navigation.replace('Welcome');
+          user ? navigation.replace('Checked') : navigation.replace('Welcome');
         }}
       />
     </View>

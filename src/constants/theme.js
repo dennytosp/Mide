@@ -4,6 +4,8 @@ const {width, height} = Dimensions.get('window');
 export const COLORS = {
   primary: '#83B4EC',
   // #5E91DB #1572DF
+  tabAdmin: '#5E91DB',
+
   tealGreen: '#128C7E',
   Green: '#075E54',
   prabo: '#9863EC',

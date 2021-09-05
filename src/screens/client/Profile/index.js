@@ -3,7 +3,6 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   Text,
   TouchableOpacity,
   ToastAndroid,
@@ -12,10 +11,21 @@ import {
 import Icon from 'react-native-vector-icons/Feather';
 import {headset, photos} from '../../../assets';
 import styles from './styles';
+import auth from '@react-native-firebase/auth';
 
 const Profile = ({navigation}) => {
   const usum =
     'https://f37-zpg.zdn.vn/2042059238978378618/80a3438125ded18088cf.jpg';
+
+  const SignOut = async () => {
+    await auth()
+      .signOut()
+      .then(() => {
+        ToastAndroid.show('User signed out!', ToastAndroid.SHORT);
+        auth().currentUser.reload();
+        navigation.refresh();
+      });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,7 +44,7 @@ const Profile = ({navigation}) => {
             <Image source={photos.avatar} style={styles.image} />
           </View>
           <View style={styles.dm}>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={() => SignOut()}>
               <Icon name="toggle-left" size={18} color="#DFD8C8" />
             </TouchableOpacity>
           </View>

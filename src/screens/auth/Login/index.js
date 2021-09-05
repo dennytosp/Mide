@@ -1,14 +1,61 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {View, Text, SafeAreaView, ToastAndroid} from 'react-native';
 import {COLORS} from '../../../constants';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import {thumbnail} from '../../../assets';
 import {FormInput, Button} from './../../../components';
 import styles from './styles';
+import auth from '@react-native-firebase/auth';
 
 const Login = ({navigation}) => {
   const [activeInput, setActiveInput] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  function validateEmail(email) {
+    const wrongFormat =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return wrongFormat.test(String(email).toLowerCase());
+  }
+
+  const SignIn = (email, password) => {
+    if (email == null || password == null) {
+      ToastAndroid.show('Please do not leave it blank!', ToastAndroid.SHORT);
+    } else if (!validateEmail(email)) {
+      ToastAndroid.show('Wrong email format!!', ToastAndroid.SHORT);
+    } else if (password.length < 6) {
+      ToastAndroid.show('Password is too short!', ToastAndroid.SHORT);
+    } else {
+      auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(snapshot => {
+          console.log(snapshot);
+          ToastAndroid.show('Logged in successfully!', ToastAndroid.SHORT);
+          // navigation.navigate('Checked');
+        })
+        .catch(error => {
+          if (error.code === 'auth/invalid-email') {
+            ToastAndroid.show(
+              'This email address is invalid!',
+              ToastAndroid.SHORT,
+            );
+          } else if (error.code === 'auth/user-not-found') {
+            ToastAndroid.show(
+              'This email address not available!',
+              ToastAndroid.SHORT,
+            );
+          } else if (error.code === 'auth/wrong-password') {
+            ToastAndroid.show(
+              'This password is incorrect!',
+              ToastAndroid.SHORT,
+            );
+          }
+
+          console.error(error);
+        });
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -16,7 +63,7 @@ const Login = ({navigation}) => {
         name="arrowleft"
         size={30}
         onPress={() => {
-          navigation.goBack();
+          navigation.navigate('Welcome');
         }}
       />
 
@@ -28,6 +75,8 @@ const Login = ({navigation}) => {
             <Text style={styles.txtForm}>Email Address</Text>
             <FormInput
               focusRemote={() => setActiveInput('email')}
+              keyboardType="email-address"
+              onState={text => setEmail(text)}
               style={{
                 borderColor:
                   activeInput == 'email' ? COLORS.primary : COLORS.white,
@@ -39,6 +88,7 @@ const Login = ({navigation}) => {
             <View style={styles.eyeWrapper}>
               <FormInput
                 focusRemote={() => setActiveInput('password')}
+                onState={text => setPassword(text)}
                 secureTextEntry={showPassword ? false : true}
                 style={{
                   borderColor:
@@ -59,7 +109,7 @@ const Login = ({navigation}) => {
           {/* Forgon password link */}
           <Text style={styles.txtForgot}>Forgot Password?</Text>
           <Button
-            handleOnPress={() => navigation.navigate('BotTabNavigation')}
+            handleOnPress={() => SignIn(email, password)}
             label={'Login'}
             isPrimary={true}
             style={styles.btnLogin}

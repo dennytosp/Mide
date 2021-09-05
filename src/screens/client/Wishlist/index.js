@@ -1,5 +1,5 @@
 import Feather from 'react-native-vector-icons/Feather';
-import React from 'react';
+import React, {useState} from 'react';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {
   View,
@@ -11,41 +11,15 @@ import {
   ScrollView,
 } from 'react-native';
 import {COLORS, SIZES} from '../../../constants';
-import {horizontalfaltlist, verticalFlatList} from '../../../assets/data';
+import {wishListVertical} from '../../../assets/data';
 import {headset, photos} from '../../../assets';
 import styles from './styles';
 
-const Homel = ({navigation}) => {
-  const horizontalRenderItem = ({item}) => {
-    return (
-      <View style={styles.horizontalViewContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Details', {details: item})}>
-          <View
-            style={{
-              backgroundColor: item.bg_color,
-              ...styles.horizontalWrapper,
-            }}>
-            <Image source={item.image} style={{height: 140, width: 120}} />
-          </View>
-        </TouchableOpacity>
-        <View style={styles.descriptionHoriWrapper}>
-          <Text style={styles.txtTitleHori}>{item.title}</Text>
-          <View style={styles.iconStarHoriWrapper}>
-            <Ionicon name="star" color={COLORS.yellow} size={18} />
-            <Ionicon name="star" color={COLORS.yellow} size={18} />
-            <Ionicon name="star" color={COLORS.yellow} size={18} />
-            <Ionicon name="star" color={COLORS.yellow} size={18} />
-            <Ionicon name="star-outline" color={COLORS.yellow} size={18} />
-          </View>
+const Wishlist = ({navigation}) => {
+  const [like, setLike] = useState(false);
 
-          <Text style={styles.txtPriceHori}>{item.price}</Text>
-        </View>
-        <View style={styles.iconEvent}>
-          {/* <Feather name="bookmark" color={COLORS.outline} size={24} /> */}
-        </View>
-      </View>
-    );
+  const Liking = () => {
+    setLike(!like);
   };
 
   const verticalRenderItem = ({item}) => {
@@ -72,11 +46,10 @@ const Homel = ({navigation}) => {
           </View>
           <Text style={styles.txtPriceVerti}>{item.price}</Text>
         </View>
-        <TouchableOpacity style={styles.iconFavorite}>
+        <TouchableOpacity style={styles.iconFavorite} onPress={() => Liking()}>
           <Ionicon
-            onPress={() => console.log('Onclick')}
-            name="heart-outline"
-            color={COLORS.outline}
+            name={like ? 'heart-outline' : 'heart'}
+            color={like ? COLORS.outline : COLORS.red}
             size={22}
           />
         </TouchableOpacity>
@@ -125,22 +98,11 @@ const Homel = ({navigation}) => {
           <Feather name="filter" size={22} />
         </View>
       </View>
-      <View style={styles.viewBestSelling}>
-        <Text style={styles.txtBestSelling}>Best Selling</Text>
-      </View>
-      <View style={styles.viewHorizontalFlatlist}>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={horizontalfaltlist}
-          renderItem={horizontalRenderItem}
-        />
-      </View>
       <View style={styles.viewVerticalFlatlist}>
-        <Text style={styles.txtPopular}>Popular</Text>
+        <Text style={styles.txtPopular}>Wishlist</Text>
         <FlatList
           style={{paddingBottom: 20}}
-          data={verticalFlatList}
+          data={wishListVertical}
           showsVerticalS
           crollIndicator={false}
           renderItem={verticalRenderItem}
@@ -149,4 +111,4 @@ const Homel = ({navigation}) => {
     </ScrollView>
   );
 };
-export default Homel;
+export default Wishlist;

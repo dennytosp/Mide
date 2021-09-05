@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text, View, StatusBar} from 'react-native';
+import {SafeAreaView, Text, View,} from 'react-native';
 import {thumbnail} from '../../../assets';
 import Button from '../../../components/Button/auth';
 import styles from './styles';

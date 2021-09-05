@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, TextInput, View} from 'react-native';
 import {COLORS, SIZES} from '../../constants';
 
-const FormInput = ({focusRemote, placeHolderText, style}) => {
+const FormInput = ({focusRemote, placeHolderText, onState, keyboardType, secureTextEntry, style}) => {
   return (
     <View>
       <TextInput
@@ -16,6 +16,9 @@ const FormInput = ({focusRemote, placeHolderText, style}) => {
         }}
         onFocus={focusRemote}
         placeholder={placeHolderText}
+        onChangeText={onState}
+        keyboardType={keyboardType}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );
