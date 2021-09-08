@@ -1,51 +1,45 @@
 import React from 'react';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {COLORS} from '../constants';
 import {admin} from './../screens';
+import CustomTabBar from './CustomTabBar';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const HomeStack = createNativeStackNavigator();
-const WishlistStack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const Tab = createMaterialBottomTabNavigator();
+const BottomTabNavigation = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{headerShown: false}}
+      tabBar={props => <CustomTabBar {...props} screen />}>
+      <Tab.Screen
+        name="Home"
+        component={admin.Home}
+        options={{
+          tabBarLabel: 'Home',
+        }}
+      />
+      <Tab.Screen
+        name="Products"
+        component={admin.Products}
+        options={{
+          tabBarLabel: 'Products',
+        }}
+      />
+      <Tab.Screen
+        name="Favorite"
+        component={admin.Favorite}
+        options={{
+          tabBarLabel: 'Favorite',
+        }}
+      />
+      <Tab.Screen
+        name="Users"
+        component={admin.Users}
+        options={{
+          tabBarLabel: 'Users',
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 
-const MainTabScreen = () => (
-  <Tab.Navigator initialRouteName="Users" activeColor={COLORS.white}>
-    <Tab.Screen
-      name="Users"
-      component={admin.Users}
-      options={{
-        tabBarLabel: 'User',
-        tabBarColor: COLORS.tabAdmin,
-        tabBarIcon: ({color}) => (
-          <Icon name="ios-headset" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Products"
-      component={admin.Products}
-      options={{
-        tabBarLabel: 'Product',
-        tabBarColor: COLORS.tabAdmin,
-        tabBarIcon: ({color}) => (
-          <Icon name="ios-planet" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Personal"
-      component={admin.InputType}
-      options={{
-        tabBarLabel: 'Personal',
-        tabBarColor: COLORS.tabAdmin,
-        tabBarIcon: ({color}) => (
-          <Icon name="ios-person" color={color} size={26} />
-        ),
-      }}
-    />
-  </Tab.Navigator>
-);
-
-export default MainTabScreen;
+export default BottomTabNavigation;

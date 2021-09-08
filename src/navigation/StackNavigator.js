@@ -88,15 +88,23 @@ const MainStackNavigator = ({initialRoute = 'Splash'}) => {
               name="Checked"
               component={isCheck ? StackStep.AdminTab : StackStep.ClienTab}
             />
-            <Stack.Screen name="Users" component={admin.Users} />
+            <Stack.Screen name="Linking" component={admin.Linking} />
+            <Stack.Screen name="Content" component={admin.Content} />
+            <Stack.Screen name="Deti" component={admin.Deti} />
+            <Stack.Screen name="AdminLogin" component={admin.AdminLogin} />
+            <Stack.Screen name="AdminRegister" component={admin.AdminRegister} />
+
+            {/* <Stack.Screen name="Users" component={admin.Users} />
             <Stack.Screen name="Products" component={admin.Products} />
             <Stack.Screen name="Personal" component={admin.InputType} />
+
 
             <Stack.Screen name="Home" component={client.Homel} />
             <Stack.Screen name="Message" component={client.Message} />
             <Stack.Screen name="WishList" component={client.WishList} />
             <Stack.Screen name="Profile" component={client.Profile} />
-            <Stack.Screen name="Details" component={client.Details} />
+            <Stack.Screen name="Details" component={client.Details} /> */}
+
           </>
         ) : (
           <>

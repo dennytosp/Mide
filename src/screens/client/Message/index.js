@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import {Header, StorySlider, SearchBox,} from '../../../components';
+import {MessageHead, StorySlider, SearchBox,} from '../../../components';
 import {styles} from './styles';
 import UserListing from './UserListing';
 import {photos} from '../../../assets';
@@ -17,7 +17,7 @@ const DATA = [
 const Message = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Header
+      <MessageHead
         heading="Chats"
         icon1={photos.take_photo}
         icon2={photos.new_message}

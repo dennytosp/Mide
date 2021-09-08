@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
-import {COLORS, SIZES} from '../../../constants';
+import {COLORS} from '../../../constants';
+import styles from './styles';
 
 const Button = ({label, isPrimary, style, handleOnPress}) => {
   return (
@@ -8,21 +9,15 @@ const Button = ({label, isPrimary, style, handleOnPress}) => {
       activeOpacity={0.8}
       onPress={handleOnPress}
       style={{
-        paddingVertical: SIZES.base * 1.5,
         backgroundColor: isPrimary ? COLORS.primary : COLORS.white,
-        borderWidth: 1.5,
         borderColor: isPrimary ? COLORS.primary : COLORS.black,
-        borderRadius: 5,
-        width: '100%',
-        alignItems: 'center',
-        marginVertical: SIZES.base,
+        ...styles.input,
         ...style,
       }}>
       <Text
         style={{
           color: isPrimary ? COLORS.white : COLORS.black,
-          fontSize: 20,
-          fontWeight: 'bold',
+          ...styles.txtTitle,
         }}>
         {label}
       </Text>

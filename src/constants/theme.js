@@ -6,6 +6,7 @@ export const COLORS = {
   // #5E91DB #1572DF
   tabAdmin: '#5E91DB',
 
+  backgroundState: '#FAFAFA',
   tealGreen: '#128C7E',
   Green: '#075E54',
   prabo: '#9863EC',
@@ -14,6 +15,12 @@ export const COLORS = {
   lightGray: '#EFEEEF',
   transparent: 'transparent',
   background: '#FFFFFF',
+  greenLight: '#5DB075',
+  placeBg: '#E8E8E8',
+  placeText: '#BDBDBD',
+  smoke: '#E6E6E6',
+
+  placeholder: '#707070',
 
   //Oboard
   gray: '#666666',
@@ -27,7 +34,7 @@ export const COLORS = {
   gray02: '#8E8E93',
 
   dark: '#000',
-  light: '#f6f6f6',
+  light: '#F6F6F6',
   grey: '#A9A9A9',
   blue: '#5f82e6',
   yellow: '#FFD700',

@@ -111,10 +111,82 @@ export const ONBOARD_DATA = [
   },
 ];
 
+export const DATA_POSTS = [
+  {
+    id: '1',
+    image: photos.user1,
+    title: 'Headshet',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+  {
+    id: '2',
+    image: photos.user2,
+    title: 'Homing',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+  {
+    id: '3',
+    image: photos.user5,
+    title: 'Vlog',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+  {
+    id: '4',
+    image: photos.user4,
+    title: 'Blogger',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+];
+
+export const DATA_CONTENT = [
+  {
+    id: '1',
+    image: photos.user5,
+    title: 'Heading',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+  {
+    id: '2',
+    image: photos.user1,
+    title: 'Linking',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+  {
+    id: '3',
+    image: photos.user2,
+    title: 'Ting ting',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+  {
+    id: '4',
+    image: photos.user4,
+    title: 'Floating',
+    content:
+      'He will want to use your yacht, and I do not want this thing smelling like fish.',
+    time: '8m ago',
+  },
+];
+
 const sources = {
   horizontalfaltlist,
   verticalFlatList,
   wishListVertical,
   ONBOARD_DATA,
+  DATA_POSTS,
+  DATA_CONTENT,
 };
 export default sources;

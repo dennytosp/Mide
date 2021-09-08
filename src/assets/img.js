@@ -51,6 +51,13 @@ import wal11 from './images/svg/wal11.svg';
 import wal12 from './images/svg/wal12.svg';
 import wal13 from './images/svg/wal13.svg';
 import wal14 from './images/svg/wal14.svg';
+import home from './images/icons/home.png';
+import bag from './images/icons/bag.png';
+import favorite from './images/icons/heart.png';
+import profile from './images/icons/profile.png';
+import searching from './images/icons/search.png';
+import cart from './images/icons/cart.png';
+import product from './images/icons/product.png';
 
 export const thumbnail = {
   auth,
@@ -113,5 +120,15 @@ export const lottie = {
   lottie3,
   lottie4,
 }
-const img = {thumbnail, headset};
+export const icons = {
+  home,
+  bag,
+  favorite,
+  profile,
+  searching,
+  cart,
+  product,
+}
+
+const img = {thumbnail, headset, photos, lottie, icons};
 export default img;

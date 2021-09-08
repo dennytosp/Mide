@@ -2,10 +2,9 @@ import React from 'react';
 import {View, Text, Pressable, ToastAndroid} from 'react-native';
 import styles from './styles';
 import auth from '@react-native-firebase/auth';
-import {useNavigation} from '@react-navigation/core';
+import Header from '../../../components/Header';
 
 const Users = () => {
-//   const navigation = useNavigation();
   const SignOut = async () => {
     await auth()
       .signOut()
@@ -16,7 +15,8 @@ const Users = () => {
   };
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{flex: 1, alignItems: 'center'}}>
+      <Header title="List Users" />
       <Pressable onPress={() => SignOut()}>
         <Text>Users</Text>
       </Pressable>

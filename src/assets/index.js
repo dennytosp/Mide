@@ -1,3 +1,3 @@
-import img, {thumbnail, headset, photos, lottie} from './img';
+import img, {thumbnail, headset, photos, lottie, icons} from './img';
 
-export {img, thumbnail, headset, photos, lottie};
+export {img, thumbnail, headset, photos, lottie, icons};
